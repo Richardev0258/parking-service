@@ -106,8 +106,11 @@ http://localhost:8080/swagger-ui.html
 
 📡 Endpoints
 1️⃣ Registrar entrada
+
 POST /api/v1/parking/entry
+
 Registra la entrada de un vehículo.
+
 Body:
 ```bash
 {
@@ -139,8 +142,11 @@ Response (error - placa duplicada):
 }
 ```
 2️⃣ Registrar salida
+
 POST /api/v1/parking/exit/{plate}
+
 Registra la salida y calcula el pago total.
+
 Response (éxito):
 ```bash
 {
@@ -167,7 +173,9 @@ Response (error - vehículo no encontrado):
 ```
 3️⃣ Consultar ticket activo
 GET /api/v1/parking/active/{plate}
+
 Consulta el ticket activo de un vehículo.
+
 Response (éxito):
 ```bash
 {

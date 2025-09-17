@@ -2,7 +2,6 @@ package com.parking.service.controller;
 
 import com.parking.service.dto.CreateTicketRequest;
 import com.parking.service.dto.TicketResponse;
-import com.parking.service.exception.NotFoundException;
 import com.parking.service.service.ParkingService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +24,7 @@ public class ParkingController {
 
     @PostMapping("/exit/{plate}")
     public ResponseEntity<TicketResponse> exit(@PathVariable String plate) {
-        return parkingService.exitVehicle(plate)
-                .map(ResponseEntity::ok)
-                .orElseThrow(() -> new NotFoundException("Vehicle with plate " + plate + " not found"));
+        return ResponseEntity.ok(parkingService.exitVehicle(plate));
     }
 
     @GetMapping("/active/{plate}")
